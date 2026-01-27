@@ -10,8 +10,11 @@ import { Toaster } from 'react-hot-toast'
 
 export default function App() {
   return (
-    <div className='w-screen h-screen bg-[#F5F5F5]'>
-
+    <div className='w-full h-screen bg-[#F5F5F5]'>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<MainLayout />}>
