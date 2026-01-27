@@ -23,7 +23,7 @@ export default function Login() {
         password: Yup.string().required()
     })
     return (
-        <div className='w-full flex justify-center flex-col items-center gap-10 mb-111.25 mt-15'>
+        <div className='w-full flex justify-center flex-col items-center gap-10 mb-111.25   mt-15'>
             <Formik validationSchema={validationSchema} onSubmit={(values) => submit(values)} initialValues={{ identifier: "", password: "", Remember: false }}>
                 <Form className='flex flex-col gap-6 w-xl items-center'>
                     <h1 className='font-openSans mb-4 font-semibold text-[#D9176C]'>Welcome Back!</h1>

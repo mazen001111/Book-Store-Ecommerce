@@ -36,7 +36,7 @@ export default function Footer() {
         <p className='text-[#ffffff]'>{"<Developed By> EraaSoft <All Copy Rights Reserved@2024"}</p>
         <div className='flex flex-row items-center justify-center gap-4'>
           <FaEarthAfrica className='text-2xl text-[#ffffff] hover:text-[#EAA451] duration-300 cursor-pointer' />
-          <button className='bg-transparent outline-0 border flex flex-row rounded-lg gap-9.75 text-[#ffffff7a] items-center justify-center pl-4 pr-2 border-[#ffffff7b] w32 h-7.25'>English<FaChevronRight /></button>
+          <button className='bg-transparent outline-0 border flex flex-row rounded-lg gap-9.75 text-[#ffffff7a] items-center justify-center pl-4 pr-2 border-[#ffffff7b] w32 h-7.25 hover:bg-[#ffffff7b] hover:text-[#3B2F4A] duration-200 cursor-pointer'>English<FaChevronRight /></button>
         </div>
 
       </div>
