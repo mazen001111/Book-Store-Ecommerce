@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import * as Yup from "yup"
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import toast from 'react-hot-toast'
 
 export default function Login() {
     const nav =useNavigate()
@@ -15,8 +16,11 @@ export default function Login() {
         let data = { email: values.identifier, password: values.password }
         axios.post(url, data).then((res) => { 
             console.log(res.data.data) 
+             toast.success("signup success")
             nav("/")
-        }).catch((err) => { console.log(err) })
+        }).catch((err) => {
+             console.log(err)
+              toast.error(err.response.data.error.message) })
     }
     const validationSchema = Yup.object({
         identifier: Yup.string("please enter a valid email").required("email is a required field").email("please enter a valid email"),

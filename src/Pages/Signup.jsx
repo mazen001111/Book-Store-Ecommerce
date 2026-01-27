@@ -23,9 +23,10 @@ export default function Signup() {
             }).then((res) => {
                 console.log(res)
                 nav("/Login")
-                toast.success("Login success")
+                toast.success("signup success")
             }).catch((err) => {
                  console.log(err);
+                 toast.error(err.response.data.error.message)
             })
         
     }
