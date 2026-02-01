@@ -4,7 +4,7 @@ import { IoCartOutline } from 'react-icons/io5'
 import cart from "../assets/cart.png"
 import heart from "../assets/heart.png"
 import { useNavigate } from 'react-router-dom'
-import { setIndex, user } from '../store'
+import {user } from '../store'
 import profilePhoto from "../assets/profile.webp"
 import SmallMenu from './SmallMenu'
 export default function ProfileInfo() {

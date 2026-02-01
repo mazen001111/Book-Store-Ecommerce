@@ -3,18 +3,19 @@ import { IoMdClose, IoMdMenu } from 'react-icons/io'
 import ProfileInfo from './ProfileInfo'
 import { user } from '../store'
 import profilePhoto from "../assets/profile.webp"
-import { FaChevronDown } from 'react-icons/fa'
+import { FaChevronDown, FaRegHeart } from 'react-icons/fa'
 import profileIcon from "../assets/user icon.png"
 import clockIcon from "../assets/clock icon.png"
 import locationIcon from "../assets/carbon_location.png"
 import helpIcon from "../assets/help icon.png"
 import logoutIcom from "../assets/exit icon.png"
 import { Link, useNavigate } from 'react-router-dom'
-import { IoHomeOutline } from 'react-icons/io5'
+import { IoCartOutline, IoHomeOutline } from 'react-icons/io5'
 import { LiaBookSolid } from "react-icons/lia";
 import { setIndex } from '../store';
 import { MdOutlineLogin } from 'react-icons/md'
-
+import cart from "../assets/cart.png"
+import heart from "../assets/heart.png"
 
 export default function SideMenu() {
     const [index1, setIndex1] = useState()
@@ -60,16 +61,36 @@ export default function SideMenu() {
 
                                     <p className='font-semibold text-#222222 text-[16px]'>Books</p>
                                 </Link>
+
                                 <Link onClick={() => setIndex1(false)} to={"/AboutUs"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
                                     <img className='w-4.25 h-4.25' src={profileIcon} />
                                     <p className='font-semibold text-#222222 text-[16px]'>About Us</p>
                                 </Link>
+                                {
+                                    index ? (
+                                        <Link onClick={() => setIndex1(false)} to={"/Cart"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
+                                            <IoCartOutline className='text-xl' />
+
+                                            <p className='font-semibold text-#222222 text-[16px]'>Cart</p>
+                                        </Link>
+
+                                    ) : null
+                                }
+                                {
+                                    index ? (
+                                        <Link onClick={() => setIndex1(false)} to={"/WhishList"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
+                                            <FaRegHeart />
+                                            <p className='font-semibold text-#222222 text-[16px]'>Whish List</p>
+                                        </Link>
+
+                                    ) : null
+                                }
                                 <Link onClick={() => setIndex1(false)} to={"./"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
                                     <img className='w-4.25 h-4.25' src={clockIcon} />
                                     <p className='font-semibold text-#222222 text-[16px]'>Order History</p>
                                 </Link>
                                 <Link onClick={() => setIndex1(false)} to={"/Profile"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
-                                    <img className='w-4.25 h-4.25' src={locationIcon} />
+                                    <img className='w-5 h-5' src={locationIcon} />
                                     <p className='font-semibold text-#222222 text-[16px]'>Address</p>
                                 </Link>
                                 <Link onClick={() => setIndex1(false)} to={"/Profile"} className='flex flex-row gap-2.5 w-full h-11.5 items-center'>
@@ -77,14 +98,16 @@ export default function SideMenu() {
                                     <p className='font-semibold text-#222222 text-[16px]'>Help</p>
                                 </Link>
                                 {
-                                    index ? (<Link onClick={() => {
-                                        Logout()
-                                        setIndex1(false)
-                                    }
-                                    } to={"/Login"} className={`flex flex-row gap-2.5 w-full h-11.5 items-center `}>
-                                        <img className='w-4.25 h-4.25' src={logoutIcom} />
-                                        <p className='font-semibold text-#222222 text-[16px]'>Logout</p>
-                                    </Link>) : (<Link onClick={() => {
+                                    index ? (
+                                        <Link onClick={() => {
+                                            Logout()
+                                            setIndex1(false)
+                                        }
+                                        } to={"/Login"} className={`flex flex-row gap-2.5 w-full h-11.5 items-center `}>
+                                            <img className='w-4.25 h-4.25' src={logoutIcom} />
+                                            <p className='font-semibold text-#222222 text-[16px]'>Logout</p>
+                                        </Link>
+                                    ) : (<Link onClick={() => {
                                         Logout()
                                         setIndex1(false)
                                     }

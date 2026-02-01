@@ -48,21 +48,21 @@ export default function Home() {
     collect()
   }, [])
   return (
-    <div className='text-black pt-201 w-full'>
+    <div className='text-black pt-201 w-full mb-4'>
       <div className="w-full scale-x-[-1] z-10 overflow-hidden h-201 bg-cover bg-center bg-no-repeat absolute top-0 " style={{ backgroundImage: `url(${Library})` }}>
         <div className='h-full w-full bg-[#00000099] flex justify-center items-center'>
-          <div className='flex flex-row w-133.75 h-14.75 items-center  bg-white scale-x-[-1]  rounded-[50px] max-w-[95%]  overflow-hidden'>
-            <input className='py-4 px-6 flex justify-center items-center h-full w-107.5 outline-0 text-[20px]' type="text" placeholder='Search' />
-            <div className='flex flex-row justify-center gap-4 items-center grow h-full text-[#ffffff] text-[22px] '>
+          <div className='flex flex-row w-133.75 max-w-[90%] h-14.75 items-center  bg-white scale-x-[-1]  rounded-[50px] max-w-[95%]  overflow-hidden'>
+            <input className='py-4 px-6 flex justify-center items-center h-full max-w-[67%] w-107.5  outline-0 text-[20px]' type="text" placeholder='Search' />
+            <div className='flex flex-row justify-center gap-4 items-center grow h-full text-[#ffffff] text-[22px] right-0 absolute '>
               <MdMicNone className='w-grow h-full text-3xl text-[#22222280]' />
-              <button className='flex flex-row justify-center items-center  w-[59px] h-full text-[#ffffff] text-[22px] bg-[#D9176C]'><FaSearch /></button>
+              <button className='flex flex-row justify-center items-center  w-14.75 h-full text-[#ffffff] text-[22px] bg-[#D9176C]'><FaSearch /></button>
             </div>
           </div>
         </div>
       </div>
-      <div className='w-full min-h-101.75 flex justify-center items-center py-29.75'>
-        <div className='container w-full max-w-320.75 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-15'>
-          <div className='flex flex-col  max-w-[95%] gap-[17.25px]' >
+       <div className='w-full min-h-101.75 flex justify-center items-center py-29.75'>
+        <div className='container w-full max-w-320.75 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 gap-15'>
+          <div className='flex flex-col   max-w-[95%] gap-[17.25px]' >
             <img className='w-7.5' src={car} alt="" />
             <div className='flex flex-col gap-2'>
               <p className='w-full font-bold text-lg text-[#222222]'>Fast & Reliable Shipping</p>
@@ -131,10 +131,10 @@ export default function Home() {
         </div>
         <Link to="/Books" className='text-[#ffffff] font-bold text-lg flex justify-center items-center py-[11.5px] px-11.75 bg-[#D9176C] rounded-lg cursor-pointer hover:bg-[#ffffff] border-2 border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Shop</Link>
       </div>
-      <div className='w-full flex justify-center'>
+      <div className='w-full flex justify-center py-20'>
         <div className='container max-w-330 flex flex-col items-center justify-center md:grid-cols-2 min-h-165'>
-          <h1 className='font-bold text-[#222222] text-[26px] text-start w-full mb-10'>Recomended For You</h1>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 '>
+          <h1 className='font-bold text-[#222222] text-[22px] text-center md:text-[26px] md:text-start w-full mb-10'>Recomended For You</h1>
+          <div className='grid grid-cols-1 gap-9 min-[1230px]:gap-6 min-[1230px]:grid-cols-2 '>
             {
               Recommended.map((el) => (
                 <Card element={el} />
@@ -142,7 +142,7 @@ export default function Home() {
             }
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   )
 }
