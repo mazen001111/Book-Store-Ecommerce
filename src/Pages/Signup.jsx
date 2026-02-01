@@ -49,7 +49,7 @@ return (
             </div>
         </div>
         <Formik validationSchema={validationSchema} onSubmit={(values) => submit(values)} initialValues={{ email: "", password: "", confirmPassword: "", FirstName: "", LastName: "", Remember: false }}>
-            <Form className='flex flex-col gap-6 w-xl items-center'>
+            <Form className='flex flex-col gap-6 w-xl max-w-[90%] items-center'>
                 <div className='flex flex-row w-full gap-4'>
                     <label className='w-full flex flex-col gap-2' htmlFor="FirstName">
                         <p className='text-[#222222] font-openSans font-semibold  text-[18px]'>First Name</p>
@@ -87,9 +87,9 @@ return (
         <div>
             <p className='text-[#222222] text-lg'>Already have an account? <Link className='cursor-pointer text-lg text-[#D9176C] font-semibold ' to={"/Login"}>Login</Link></p>
         </div>
-        <div className='flex flex-col gap-6 w-xl '>
-            <button className='bg-[#FFFFFF] shadow-xl w-full h-[46px] rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FcGoogle className='h-5 w-5' /> Login with Google</button>
-            <button className='bg-[#FFFFFF] shadow-xl w-full h-[46px] rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FaFacebook className='text-[#1877F2] w-5 h-5' /> Login with Facebook</button>
+        <div className='flex flex-col gap-6 w-xl max-w-[90%] '>
+            <button className='bg-[#FFFFFF] shadow-xl w-full h-11.5 rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FcGoogle className='h-5 w-5' /> Login with Google</button>
+            <button className='bg-[#FFFFFF] shadow-xl w-full h-11.5 rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FaFacebook className='text-[#1877F2] w-5 h-5' /> Login with Facebook</button>
         </div>
     </div>
 )
