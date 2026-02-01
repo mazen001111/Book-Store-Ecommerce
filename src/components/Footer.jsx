@@ -9,14 +9,14 @@ import { FaEarthAfrica, FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
   const linkClass =({ isActive }) => `text-[16px] hover:text-[#EAA451] duration-200  ${isActive  ? " text-[#EAA451]" : " text-[#ffffff]"}`
   return (
-    <div className='min-h-92.5 bg-[#3B2F4A] w-full flex flex-col items-center justify-center'>
-      <div className='container max-w-330 flex flex-row justify-between w-full '>
-        <div className='flex flex-row items-center gap-10 '>
+    <div className='md:min-h-92.5 h-200 bg-[#3B2F4A] w-full flex flex-col items-center justify-center p-10  '>
+      <div className='container max-w-330 flex flex-col md:flex-row gap-5 items-center md:justify-between w-full'>
+        <div className='flex flex-row items-center gap-10 max-[430px]:flex-col max-[430px]:items-start max-[430px]:w-full '>
           <div className='flex flex-row items-center gap-[10.5px]'>
             <img className='text-[#FFFFFF] w-6 h-7.5' src={Book} alt="" />
             <p className='text-[#FFFFFF] font-sans text-[14px]'>Bookshop</p>
           </div>
-          <div className='flex flex-row gap-6  '>
+          <div className='flex flex-row gap-6 max-[430px]:flex-col '>
             <NavLink to="/" className={linkClass}>Home</NavLink>
             <NavLink to={"/Books"} className={linkClass}>Books</NavLink>
             <NavLink to={"/AboutUs"} className={linkClass}>About Us</NavLink>
@@ -32,8 +32,8 @@ export default function Footer() {
       <div className='container max-w-330 mt-4 mb-4 w-full'>
         <hr className='border text-[#ffffff2b]  w-full' />
       </div>
-      <div className='container max-w-330 w-full flex flex-row justify-between'>
-        <p className='text-[#ffffff]'>{"<Developed By> EraaSoft <All Copy Rights Reserved@2024"}</p>
+      <div className='container max-w-330 w-full flex flex-row justify-between max-[680px]:flex-col gap-5 max-[680px]:items-center'>
+        <p className='text-[#ffffff] max-[680px]:w-full max-[680px]:text-center'>{"<Developed By> EraaSoft <All Copy Rights Reserved@2024"}</p>
         <div className='flex flex-row items-center justify-center gap-4'>
           <FaEarthAfrica className='text-2xl text-[#ffffff] hover:text-[#EAA451] duration-300 cursor-pointer' />
           <button className='bg-transparent outline-0 border flex flex-row rounded-lg gap-9.75 text-[#ffffff7a] items-center justify-center pl-4 pr-2 border-[#ffffff7b] w32 h-7.25 hover:bg-[#ffffff7b] hover:text-[#3B2F4A] duration-200 cursor-pointer'>English<FaChevronRight /></button>

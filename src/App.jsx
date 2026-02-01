@@ -7,6 +7,12 @@ import AboutUs from './Pages/AboutUs'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import { Toaster } from 'react-hot-toast'
+import ForgetPassword from './Pages/ForgetPassword'
+import ResetCode from './Pages/ResetCode'
+import AddCode from './Pages/AddCode'
+import Profile from './Pages/Profile'
+import WhishList from './Pages/WhishList'
+import Cart from './Pages/Cart'
 
 export default function App() {
   return (
@@ -23,7 +29,14 @@ export default function App() {
             <Route path='Signup' element={<Signup />} />
             <Route path='Books' element={<Books />} />
             <Route path='AboutUs' element={<AboutUs />} />
+            <Route path='ForgetPassword' element={<ForgetPassword/>}/>
+            <Route path='ResetCode' element={<ResetCode/>}/>
+            <Route path='AddCode' element={<AddCode/>}/>
+            <Route path='Profile' element={<Profile/> } />
+            <Route path='WhishList' element={<WhishList/>}/>
+            <Route path='Cart' element={<Cart/>}/>
           </Route>
+          <Route path='*' element={<h1>Page not found</h1>}/>
         </Routes>
       </BrowserRouter>
     </div>

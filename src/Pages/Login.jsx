@@ -1,27 +1,34 @@
 import axios from 'axios'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import * as Yup from "yup"
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import toast from 'react-hot-toast'
 import Library from "../assets/533643aa8db82414f48d43a992d009dda3961386.png"
+import ForgetPassword from './ForgetPassword'
+import { user } from '../store'
 
 export default function Login() {
     const nav = useNavigate()
     let domain = "https://bookstore.eraasoft.pro/api"
     let endPoint = "/login"
     let url = domain + endPoint
+    const { setName, setEmail, setPhoto } = user()
+
     const submit = async (values) => {
         let data = { email: values.identifier, password: values.password }
         try {
             const res = await axios.post(url, data)
             console.log(res.data.data)
+            setName(res?.data.data.user.first_name + " " + res.data.data.user.last_name)
+            setEmail(res.data.data.user.email)
+            setPhoto(res.data.data.user.image)
             if (values.Remember == true) {
                 localStorage.setItem("Token", res.data.data.token)
             } else {
-                sessionStorage.setItem("Token", res.token)
+                sessionStorage.setItem("Token", res.data.data.token)
             }
             nav("/")
             toast.success("Login success")
@@ -29,6 +36,16 @@ export default function Login() {
             toast.error(err?.response?.data?.message);
         }
     }
+    useEffect(() => {
+        const token =localStorage.getItem("Token") || sessionStorage.getItem("Token");
+        
+        if (token) {
+            axios.post()
+            nav("/")
+        }
+    }, [])
+
+    
     const validationSchema = Yup.object({
         identifier: Yup.string("please enter a valid email").required("email is a required field").email("please enter a valid email"),
         password: Yup.string().required()
@@ -40,7 +57,7 @@ export default function Login() {
                 </div>
             </div>
             <Formik validationSchema={validationSchema} onSubmit={(values) => submit(values)} initialValues={{ identifier: "", password: "", Remember: false }}>
-                <Form className='flex flex-col gap-6 w-xl items-center'>
+                <Form className='flex flex-col gap-6 w-xl items-center max-w-[90%]'>
                     <h1 className='font-openSans mb-4 font-semibold text-[#D9176C]'>Welcome Back!</h1>
                     <label className='w-full flex flex-col gap-2' htmlFor="email">
                         <p className='text-[#222222] font-openSans font-semibold  text-[18px]'>Email</p>
@@ -53,11 +70,11 @@ export default function Login() {
                         <ErrorMessage name='password' component={"p"} className='text-red-700' />
                     </label>
                     <div className='w-full flex flex-row justify-between items-center'>
-                        <label className='flex flex-row justify-center gap-2 -mt-2 items-center' htmlFor="Remember">
+                        <label className='flex flex-row justify-center gap-2 -mt-2 items-center'>
                             <Field className="" name="Remember" type="checkbox" />
                             <p className='text-[#222222] font-openSans font-normal text-[14px]'>Remember me</p>
                         </label>
-                        <Link className='text-[#D9176C] text-[16px] '>Forget password?</Link>
+                        <Link to={"/ForgetPassword"} className='text-[#D9176C] text-[16px] '>Forget password?</Link>
                     </div>
                     <button type='submit' className='bg-[#D9176C] w-full h-12 rounded-lg cursor-pointer text-lg text-[#FFFFFF]' >Log in</button>
                 </Form>
@@ -65,7 +82,7 @@ export default function Login() {
             <div>
                 <p className='text-[#222222] text-lg'>Don't have account? <Link className='cursor-pointer text-lg text-[#D9176C] font-semibold ' to={"/Signup"}>Signup</Link></p>
             </div>
-            <div className='flex flex-col gap-6 w-xl '>
+            <div className='flex flex-col gap-6 w-full md:w-xl max-w-[90%]: '>
                 <button className='bg-[#FFFFFF] shadow-xl w-full h-11.5 rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FcGoogle className='h-5 w-5' /> Login with Google</button>
                 <button className='bg-[#FFFFFF] shadow-xl w-full h-11.5 rounded-lg text-[14px] flex flex-row justify-center gap-2.5 items-center text-[#222222] cursor-pointer'><FaFacebook className='text-[#1877F2] w-5 h-5' /> Login with Facebook</button>
             </div>

@@ -34,6 +34,7 @@ export default function Home() {
   let url = domain + endPoint
 
   useEffect(() => {
+    window.scrollTo(0,0)
     const collect = async () => {
       try {
         let res = await axios.get(url,{params:{populate:{recommended:{populate:"*"}}}})
@@ -128,7 +129,7 @@ export default function Home() {
           </Swiper>
 
         </div>
-        <Link to="/Books" className='text-[#ffffff] text-lg flex justify-center items-center py-[11.5px] px-11.75 bg-[#D9176C] rounded-lg cursor-pointer'>Shop</Link>
+        <Link to="/Books" className='text-[#ffffff] font-bold text-lg flex justify-center items-center py-[11.5px] px-11.75 bg-[#D9176C] rounded-lg cursor-pointer hover:bg-[#ffffff] border-2 border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Shop</Link>
       </div>
       <div className='w-full flex justify-center'>
         <div className='container max-w-330 flex flex-col items-center justify-center md:grid-cols-2 min-h-165'>
