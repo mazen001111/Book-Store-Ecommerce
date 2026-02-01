@@ -21,7 +21,7 @@ import thinking from "../assets/thinking.jpg"
 import habits from "../assets/habits.jpg"
 import sunRise from "../assets/sunrise.png"
 import { Link } from 'react-router-dom'
-import Card from '../components/card'
+import Card from '../components/Card'
 
 
 export default function Home() {
