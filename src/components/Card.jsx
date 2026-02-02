@@ -4,6 +4,7 @@ import { IoCartOutline } from 'react-icons/io5'
 import dad from "../assets/dad.png"
 import { FaRegHeart } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import StarRating from './Stars'
 export default function Card({ element }) {
 
     return (
@@ -19,12 +20,12 @@ export default function Card({ element }) {
                 <div className='flex flex-col gap-4 w-full'>
                     <div className='flex flex-row w-full '>
                         <div className='w-1/2 flex flex-col gap-2'>
-                            <div className='flex flex-row w-full justify-between'> 
-                                <p>stars</p>
-                                <p className='text-[14px] text-[#22222280] flex flex-row justify-end '>({element.countReview} Reviews)</p>
+                            <div className='flex flex-col w-full justify-between'> 
+                                <p>{<StarRating rating={element.rate}/>}</p>
+                                <p className='text-[14px] text-[#22222280] flex flex-row justify-start mt-2 '>({element.countReview} Reviews)</p>
                             </div>
                             <div className='flex flex-row'>
-                                <p className='text-[14px] text-[#22222280]'>Rate: </p>
+                                <p className='text-[14px] text-[#22222280]'>rate:</p>
                                 <p className='text-[14px] text-[#222222] font-semibold'>{element.rate}</p>
                             </div>
                         </div>
@@ -34,7 +35,7 @@ export default function Card({ element }) {
                         </div>
                     </div>
                     <div className='flex flex-row gap-4 w-full'>
-                        <button className='py-3.5 w-[70%]  min-[692px]:px-10 bg-[#D9176C] rounded-lg text-[#ffffff] text-[12px] min-[692px]:text-lg font-semibold flex justify-center items-center cursor-pointer border-2 hover:bg-[#ffffff] hover:border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Add To Cart <AiOutlineShoppingCart  className='font-bold ml-2 ' /></button>
+                        <button className='py-3.5 max-[692px]:w-[70%]  min-[692px]:px-10 bg-[#D9176C] rounded-lg text-[#ffffff] text-[12px] min-[692px]:text-lg font-semibold flex justify-center items-center cursor-pointer border-2 hover:bg-[#ffffff] hover:border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Add To Cart <AiOutlineShoppingCart  className='font-bold ml-2 ' /></button>
                         <button className='flex justify-center grow items-center rounded-lg p-[14] bg-[#ffffff] border-2 border-[#D9176C] cursor-pointer hover:bg-[#D9176C]   text-[#D9176C] hover:text-[#ffffff] transition duration-200'><FaRegHeart className='text-2xl'  /></button>
                     </div>
                 </div>

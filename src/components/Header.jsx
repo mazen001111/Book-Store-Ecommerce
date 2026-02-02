@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { PiLineVertical, PiLineVerticalThin } from "react-icons/pi";
 import BookMark from "../assets/book-bookmark 1.png"
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -13,15 +13,6 @@ export default function Header() {
     const { index, indexFalse, indexTrue } = setIndex()
     const token = localStorage.getItem("Token") || sessionStorage.getItem("Token")
     const location = useLocation()
-    const [sideMenuIndex, setsideMenuIndex] = useState(false)
-
-    const toggle = () => {
-        if (sideMenuIndex) {
-            setsideMenuIndex(false)
-        } else {
-            setsideMenuIndex(true)
-        }
-    }
 
     useEffect(() => {
         if (token) {

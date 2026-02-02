@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Library from "../assets/533643aa8db82414f48d43a992d009dda3961386.png"
 import { FaSearch } from 'react-icons/fa'
 import { MdMicNone } from 'react-icons/md'
@@ -22,25 +22,51 @@ import habits from "../assets/habits.jpg"
 import sunRise from "../assets/sunrise.png"
 import { Link } from 'react-router-dom'
 import Card from '../components/Card'
-
-
+import right from "../assets/right.png"
+import left from "../assets/left.png"
+import CardDark from '../components/CardDark'
 export default function Home() {
   const products = [richDad, tea, power, research, design, thinking, habits, sunRise]
   const [bestSeller, setBestSeller] = useState([])
   const [Recommended, setRecommended] = useState([])
-
+  const [flashSales, setFlashSales] = useState([])
   let domain = "https://bookstore.eraasoft.pro/api"
   let endPoint = "/home"
   let url = domain + endPoint
+  const [formattedTime, setTime] = useState(null)
+  useEffect(() => {
+    const totalSeconds = 108000; // Example: 1 hour, 0 min, 5 sec
+    let remainingSeconds = totalSeconds;
+    const intervalId = setInterval(() => {
+      const hours = Math.floor(remainingSeconds / 3600);
+      const minutes = Math.floor((remainingSeconds % 3600) / 60);
+      const seconds = remainingSeconds % 60;
+
+      setTime(
+        `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+      );
+
+      remainingSeconds--;
+
+      if (remainingSeconds < 0) {
+        clearInterval(intervalId);
+      }
+    }, 1000);
+
+    // Cleanup on unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    // window.scrollTo(0, 0)
     const collect = async () => {
       try {
-        let res = await axios.get(url,{params:{populate:{recommended:{populate:"*"}}}})
+        let res = await axios.get(url, { params: { populate: { recommended: { populate: "*" } } } })
         console.log(res.data.data)
         setBestSeller(res.data.data.best_selling_image)
         setRecommended(res.data.data.recommended)
+        setFlashSales(res.data.data.flashSales)
       } catch (error) {
         console.log(error)
       }
@@ -60,7 +86,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-       <div className='w-full min-h-101.75 flex justify-center items-center py-29.75'>
+      <div className='w-full min-h-101.75 flex justify-center items-center py-29.75'>
         <div className='container w-full max-w-320.75 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 gap-15'>
           <div className='flex flex-col   max-w-[95%] gap-[17.25px]' >
             <img className='w-7.5' src={car} alt="" />
@@ -132,7 +158,7 @@ export default function Home() {
         <Link to="/Books" className='text-[#ffffff] font-bold text-lg flex justify-center items-center py-[11.5px] px-11.75 bg-[#D9176C] rounded-lg cursor-pointer hover:bg-[#ffffff] border-2 border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Shop</Link>
       </div>
       <div className='w-full flex justify-center py-20'>
-        <div className='container max-w-330 flex flex-col items-center justify-center min-h-165'>
+        <div className='container max-w-330 flex flex-col items-center justify-center min-h-165 md:px-12'>
           <h1 className='font-bold text-[#222222] text-[22px] text-center md:text-[26px] md:text-start w-full mb-10'>Recomended For You</h1>
           <div className=' grid place-items-center grid-cols-1 gap-9 min-[1230px]:gap-6 min-[1230px]:grid-cols-2 '>
             {
@@ -142,7 +168,31 @@ export default function Home() {
             }
           </div>
         </div>
-      </div> 
+      </div>
+      <div className='min-h-176.5 w-full flex justify-center items-center'>
+        <div className='container max-w-330 flex flex-col   gap-18'>
+          <div className='flex flex-row justify-between'>
+            <div className='flex flex-col gap-4 w-129 px-5' >
+              <h1 className='font-bold text-[#222222] text-2xl'>Flash Sale</h1>
+              <p className='text-[#22222280] text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.</p>
+            </div>
+            <div className='hidden md:flex flex-row relative'>
+              <img src={left} alt="" />
+              <img src={right} alt="" />
+              <p className='absolute right-[14%] top-[35%] font-bold text-[26px] text-[#222222]'>{formattedTime}</p>
+            </div>
+          </div>
+          <div>
+            <div className=' grid place-items-center grid-cols-1 gap-9 min-[1230px]:gap-6 min-[1230px]:grid-cols-2 '>
+              {
+                Recommended.map((el) => (
+                  <CardDark element={el} />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
