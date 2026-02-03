@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export const setIndex =create((set)=>({
     index:false,
@@ -6,7 +7,7 @@ export const setIndex =create((set)=>({
     indexFalse:()=>set(()=>({index:false}))
 }))
 
-export const user =create((set)=>({
+export const user =create(persist((set)=>({
     name:"",
     email:"",
     photo:'',
@@ -14,4 +15,9 @@ export const user =create((set)=>({
     setEmail:(userEmail)=>set(()=>({email:userEmail})),
     setPhoto:(userPhoto)=>set(()=>({Photo:userPhoto})),
 
-}))
+}),
+{
+    name:"user"
+}
+
+))
