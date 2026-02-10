@@ -8,9 +8,9 @@ import StarRating from './Stars'
 export default function Card({ element }) {
 
     return (
-        <div className='p-5 min-[570px]:p-10 flex flex-col  min-[570px]:flex-row max-[570px]:items-center max-w-[95%] w-162 bg-[#ffffff]  gap-9.75'>
+        <div className='p-5 min-[570px]:p-10 flex flex-col  min-[570px]:flex-row justify-between max-[570px]:items-center max-w-[95%] w-162 bg-[#ffffff]  gap-9.75'>
             <img className='w-50 min-[570px]:w-45' src={dad} /> 
-            <div className='flex flex-col items-start w-88.25 max-w-full'>
+            <div className='flex flex-col items-start w-88.25 max-w-[full]'>
                 <p className='font-bold text-lg text-[#222222] mb-1'>{element.bookName}</p>
                 <div className='text-[14px] w-full text-[#22222280] mb-2 gap-1 flex flex-row'>
                     <p className='text-[14px] text-[#22222280]'>Author:</p>

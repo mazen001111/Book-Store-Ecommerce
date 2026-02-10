@@ -25,7 +25,11 @@ import Card from '../components/Card'
 import right from "../assets/right.png"
 import left from "../assets/left.png"
 import CardDark from '../components/CardDark'
+
+
 export default function Home() {
+
+
   const products = [richDad, tea, power, research, design, thinking, habits, sunRise]
   const [bestSeller, setBestSeller] = useState([])
   const [Recommended, setRecommended] = useState([])
@@ -59,7 +63,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    // window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
     const collect = async () => {
       try {
         let res = await axios.get(url, { params: { populate: { recommended: { populate: "*" } } } })
