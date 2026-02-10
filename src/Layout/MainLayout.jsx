@@ -5,9 +5,9 @@ import Footer from '../components/Footer'
 import Library from "../assets/533643aa8db82414f48d43a992d009dda3961386.png"
 export default function MainLayout() {
     return (
-        <div className='flex flex-col w-full h-screen justify-between  pt-15 md:pt-23   bg-[#F5F5F5]'>
+        <div className='flex flex-col w-full min-h-dvh justify-between  pt-15 md:pt-23   bg-[#F5F5F5]'>
             <Header />
-            <Outlet />
+            <Outlet className="grow" />
             <Footer />
         </div>
     )

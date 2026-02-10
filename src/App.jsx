@@ -13,6 +13,10 @@ import AddCode from './Pages/AddCode'
 import Profile from './Pages/Profile'
 import WhishList from './Pages/WhishList'
 import Cart from './Pages/Cart'
+import ProductOverView from './Layout/ProductOverView'
+import ProductDetails from './components/ProductDetails'
+import CustomerReview from './components/CustomerReview'
+import Recommended from './components/Recommended'
 
 export default function App() {
   return (
@@ -28,15 +32,22 @@ export default function App() {
             <Route path='Login' element={<Login />} />
             <Route path='Signup' element={<Signup />} />
             <Route path='Books' element={<Books />} />
+
+            <Route path='ProductOverView' element={<ProductOverView />}>
+              <Route path='ProductDetails' element={<ProductDetails/>} />
+              <Route path='Customer' element={<CustomerReview/>}/>
+              <Route path='Recommended' element={<Recommended/>}/>
+            </Route>
+
             <Route path='AboutUs' element={<AboutUs />} />
-            <Route path='ForgetPassword' element={<ForgetPassword/>}/>
-            <Route path='ResetCode' element={<ResetCode/>}/>
-            <Route path='AddCode' element={<AddCode/>}/>
-            <Route path='Profile' element={<Profile/> } />
-            <Route path='WhishList' element={<WhishList/>}/>
-            <Route path='Cart' element={<Cart/>}/>
+            <Route path='ForgetPassword' element={<ForgetPassword />} />
+            <Route path='ResetCode' element={<ResetCode />} />
+            <Route path='AddCode' element={<AddCode />} />
+            <Route path='Profile' element={<Profile />} />
+            <Route path='WhishList' element={<WhishList />} />
+            <Route path='Cart' element={<Cart />} />
           </Route>
-          <Route path='*' element={<h1>Page not found</h1>}/>
+          <Route path='*' element={<h1>Page not found</h1>} />
         </Routes>
       </BrowserRouter>
     </div>

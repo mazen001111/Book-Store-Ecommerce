@@ -19,7 +19,7 @@ export default function CardDark({ element }) {
                 <div className='flex flex-col gap-4 w-full'>
                     <div className='w-1/2 flex flex-col gap-2'>
                         <div className='flex flex-roe w-full justify-between'>
-                            <p>{<StarRating rating={element.rate} />}</p>
+                            <p>{<StarRating rating={4.5} />}</p>
                             <div className='text-[14px] text-[#ffffff80] flex flex-row gap-2 justify-start  '>
                                 <p>{"("}{element.countReview}</p>
                                 <p className='text-[14px] text-[#ffffff80] flex flex-row justify-start '> {"  Reviews)"}</p>

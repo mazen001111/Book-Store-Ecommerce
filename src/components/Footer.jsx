@@ -9,7 +9,7 @@ import { FaEarthAfrica, FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
   const linkClass =({ isActive }) => `text-[16px] hover:text-[#EAA451] duration-200  ${isActive  ? " text-[#EAA451]" : " text-[#ffffff]"}`
   return (
-    <div className='md:min-h-92.5 h-200 bg-[#3B2F4A] w-full flex flex-col items-center justify-center p-10  '>
+    <div className='md:min-h-92.5  bg-[#3B2F4A] w-full flex flex-col items-center justify-center p-10  '>
       <div className='container max-w-330 flex flex-col md:flex-row gap-5 items-center md:justify-between w-full'>
         <div className='flex flex-row items-center gap-10 max-[430px]:flex-col max-[430px]:items-start max-[430px]:w-full '>
           <div className='flex flex-row items-center gap-[10.5px]'>

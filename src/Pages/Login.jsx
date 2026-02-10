@@ -51,7 +51,7 @@ export default function Login() {
         password: Yup.string().required()
     })
     return (
-        <div className='w-full flex justify-center flex-col items-center gap-10 mb-111.25 pt-100  mt-15'>
+        <div className='w-full flex justify-center flex-col items-center gap-10 mb-111.25 bg-[#f5f5f5] pt-100  mt-15'>
             <div className="w-full scale-x-[-1] z-10 overflow-hidden h-95.75 bg-cover bg-center bg-no-repeat absolute top-0 " style={{ backgroundImage: `url(${Library})` }}>
                 <div className='h-full w-full bg-[#00000099]'>
                 </div>
