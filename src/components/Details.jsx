@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Details() {
   return (
-    <div>Details</div>
+    <div className='min-h-150'>Details</div>
   )
 }

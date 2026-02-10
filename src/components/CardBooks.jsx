@@ -10,11 +10,11 @@ export default function CardBooks({ element }) {
 const nav=useNavigate()
     return (
         <div className=' flex flex-row   max-w-[95%] w-full min-h-63.75 bg-[#F5F5F5] max-[700px]:flex-col max-[700px]:items-center  gap-9.75'>
-            <img onClick={()=>nav("/ProductOverView")} className='max-[700px]:w-50 cursor-pointer  min-[700px]:w-50' src={dad} />
+            <img onClick={()=>nav("/ProductOverView/ProductDetails")} className='max-[700px]:w-50 cursor-pointer  min-[700px]:w-50' src={dad} />
             <div className='flex flex-col items-start max-[700px]:w-full grow min-[700px]:max-w-[70%]'>
                 <div className='w-full flex flex-row'>
                     <div className='w-106 max-w-full'>
-                        <p onClick={()=>nav("/ProductOverView")} className='font-bold text-lg text-[#222222] mb-1 cursor-pointer '>{element.bookName}</p>
+                        <p onClick={()=>nav("/ProductOverView/ProductDetails")} className='font-bold text-lg text-[#222222] mb-1 cursor-pointer '>{element.bookName}</p>
                         <p className='text-[14px] text-[#22222280] mb-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, Aliquam in justo varius,</p>
                     </div>
                     <div className='max-[950px]:hidden'>

@@ -11,7 +11,7 @@ export default function ProductOverView() {
                 <div className='h-full w-full flex flex-col gap-6 bg-[#00000099] '>
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center w-full h-full max-[760px]:px-5 px-10 mb-10 container max-w-333'>
+            <div className='flex flex-col gap-17.5 justify-center items-center w-full h-full max-[760px]:px-5 px-10 mb-10 container max-w-333'>
                 <Details />
                 <NavigationLinks />
                 <Outlet />

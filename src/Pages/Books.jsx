@@ -68,12 +68,12 @@ export default function Books() {
   }
 
   return (
-    <div className='w-full bg-[#F5F5F5] flex justify-center flex-col items-center gap-10  mt-21 ' >
+    <div className='w-full bg-[#F5F5F5] flex justify-start flex-col items-center gap-10  mt-21 ' >
       <div className="w-full scale-x-[-1] z-10 overflow-hidden h-29.75 bg-cover bg-center  bg-no-repeat absolute top-0 " style={{ backgroundImage: `url(${Library})` }}>
         <div className='h-full w-full flex flex-col gap-6 bg-[#00000099] '>
         </div>
       </div>
-      <div className='flex  flex-row lg:flex-row container max-w-333 gap-10 justify-start max-[1367px]:justify-center   items-center min-h-dvh  w-full '>
+      <div className='flex  flex-row lg:flex-row container max-w-333 gap-10 justify-start max-[1367px]:justify-center   items-start min-h-dvh  w-full '>
         <div className=' max-[1367px]:hidden flex flex-col w-90% gap-6 lg:w-74 h-full '>
           <div className='flex flex-row w-full gap-4 h-fit items-center'>
             <img className="w-6 h-6" src={filterIcon} alt="" />
@@ -147,7 +147,7 @@ export default function Books() {
               <div className=' grid place-items-center grid-cols-1 gap-14 w-full  '>
                 {
                   view?.map((el) => (
-                    <CardBooks element={el} />
+                    <CardBooks  element={el} />
                   ))
                 }
               </div>
