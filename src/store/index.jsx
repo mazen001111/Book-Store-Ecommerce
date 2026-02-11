@@ -9,11 +9,15 @@ export const setIndex =create((set)=>({
 
 export const user =create(persist((set)=>({
     name:"",
+    FirstName:"",
+    LastName:"",
     email:"",
     photo:'',
     setName:(userName)=>set(()=>({name:userName})),
     setEmail:(userEmail)=>set(()=>({email:userEmail})),
     setPhoto:(userPhoto)=>set(()=>({Photo:userPhoto})),
+    setLastName:(userLastName)=>set(()=>({LastName:userLastName})),
+    setFirstName:(userFirstName)=>set(()=>({FirstName:userFirstName})),
 
 }),
 {

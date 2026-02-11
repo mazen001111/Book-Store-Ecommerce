@@ -46,7 +46,6 @@ export default function Header() {
                             <Link to="/Signup" className='w-19.75 h-11 flex justify-center items-center rounded-lg border border-[#D9176C] font-semibold text-[#D9176C] text-lg transition duration-300 bg-[#ffffff] hover:text-[#ffffff]  hover:bg-[#D9176C]'>Signup</Link>
                         </div>)
                 }
-
             </div>
         </div>
     )

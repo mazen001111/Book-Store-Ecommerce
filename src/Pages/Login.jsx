@@ -15,7 +15,7 @@ export default function Login() {
     let domain = "https://bookstore.eraasoft.pro/api"
     let endPoint = "/login"
     let url = domain + endPoint
-    const { setName, setEmail, setPhoto } = user()
+    const { setName, setEmail, setPhoto,setLastName,setFirstName } = user()
 
     const submit = async (values) => {
         let data = { email: values.identifier, password: values.password }
@@ -23,6 +23,8 @@ export default function Login() {
             const res = await axios.post(url, data)
             console.log(res.data.data)
             setName(res?.data.data.user.first_name + " " + res.data.data.user.last_name)
+            setFirstName(res?.data.data.user.first_name)
+            setLastName(res.data.data.user.last_name)
             setEmail(res.data.data.user.email)
             setPhoto(res.data.data.user.image)
             if (values.Remember == true) {
@@ -34,6 +36,7 @@ export default function Login() {
             toast.success("Login success")
         } catch (err) {
             toast.error(err?.response?.data?.message);
+           console.log(err?.response?.data);
         }
     }
     useEffect(() => {

@@ -27,7 +27,6 @@ export default function Books() {
   //     console.log(error?.response)
   //   }
   // }
-  const [isActivated, SetIsActivated] = useState(false)
   const [view, setview] = useState([])
 
   useEffect(() => {
