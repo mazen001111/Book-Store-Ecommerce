@@ -17,6 +17,7 @@ import ProductOverView from './Layout/ProductOverView'
 import ProductDetails from './components/ProductDetails'
 import CustomerReview from './components/CustomerReview'
 import Recommended from './components/Recommended'
+import CheckoutPage from './Pages/CheckoutPage'
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
             <Route path='Profile' element={<Profile />} />
             <Route path='WhishList' element={<WhishList />} />
             <Route path='Cart' element={<Cart />} />
+            <Route path='CheckoutPage' element={<CheckoutPage />} />
           </Route>
           <Route path='*' element={<h1>Page not found</h1>} />
         </Routes>

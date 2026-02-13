@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { addCart } from '../store'
+import { useNavigate } from 'react-router-dom'
 
 export default function Checkout() {
+    const nav = useNavigate()
     const [promoCode, setPromoCode] = useState('')
     const { total } = addCart()
 
@@ -55,10 +57,10 @@ export default function Checkout() {
                         </div>
 
                         <div className='space-y-3'>
-                            <button  className='w-full py-3.5 bg-[#D9176C] text-white text-base font-semibold rounded-lg hover:bg-[#b91359] transition duration-200'>
+                            <button onClick={() => nav('/CheckoutPage')} className='w-full py-3.5 bg-[#D9176C] text-white text-base font-semibold rounded-lg hover:bg-[#b91359] transition duration-200'>
                                 Check out
                             </button>
-                            <button className='w-full py-3.5 bg-white text-[#D9176C] text-base font-semibold rounded-lg border-2 border-[#D9176C] hover:bg-[#D9176C] hover:text-white transition duration-200'>
+                            <button onClick={() => nav('/Books')} className='w-full py-3.5 bg-white text-[#D9176C] text-base font-semibold rounded-lg border-2 border-[#D9176C] hover:bg-[#D9176C] hover:text-white transition duration-200'>
                                 Keep Shopping
                             </button>
                         </div>
