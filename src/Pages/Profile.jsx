@@ -18,9 +18,9 @@ export default function Profile() {
     }, [])
 
     const { FirstName, LastName, email, photo } = user()
-console.log(email)
+    console.log(email)
     const Submit = (values) => {
-
+        console.log(values)
     }
     return (
         <div className='w-full flex flex-col justify-center items-center h-full pt-84.5'>
@@ -30,7 +30,7 @@ console.log(email)
             </div>
             <img className='h-40  rounded-[80px] absolute top-70 z-20' src={photo ? photo : profilePhoto} alt="" />
 
-            <Formik onSubmit={(values) => Submit(values)} initialValues={{ email:`${email}`, PhoneNumber: "012345678", Address: "Giza , faisal", FirstName: `${FirstName}`, LastName: `${LastName}`, Remember: false }}>
+            <Formik onSubmit={(values) => Submit(values)} initialValues={{ email: `${email}`, PhoneNumber: "012345678", Address: "Giza , faisal", FirstName: `${FirstName}`, LastName: `${LastName}`, Remember: false }}>
                 <Form className='flex flex-col mb-10 gap-6 w-184 border border-[#22222233] max-w-[90%] mt-40 bg-[#FFFFFF] p-4 md:p-10 rounded-[20px] items-center'>
                     <h1 className='mb-10 text-[20px] font-semibold text-[#222222]'>General information</h1>
                     <div className='flex flex-col lg:flex-row w-full gap-4'>
