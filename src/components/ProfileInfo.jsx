@@ -20,7 +20,7 @@ export default function ProfileInfo() {
     const { name, email, photo } = user()
     return (
         <div className='w-fit hidden md:flex flex-row gap-6 items-center justify-center'>
-            <img className='cursor-pointer' onClick={() => nav("/WhishList")} src={heart} alt="" />
+            <img className='cursor-pointer ' onClick={() => nav("/WhishList")} src={heart} alt="" />
             <img className='cursor-pointer' onClick={() => nav("/Cart")} src={cart} alt="" />
             <div className='w-fit relative'>
                 <div className='flex flex-row gap-6 items-center justify-center hover:bg-[#ffffff17] rounded-lg cursor-pointer transition duration-200 p-1.5' onClick={() => toggle()}>

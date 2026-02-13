@@ -81,3 +81,57 @@ export const addCart = create((set) => ({
         return { total: Total }
     })
 }))
+
+export const addWishlist = create((set) => ({
+    items: [],
+    total: 0,
+    addWishlistFunction: (Product) => set((state) => {
+        let products = state.items
+        let index = products.findIndex((el) => (el.bookId == Product.bookId))
+        if (index == -1) {
+            products.push({ ...Product, qty: 1 })
+            toast.success("product added to wishlist")
+        } else {
+            products[index].qty++
+            toast.success("Product quantity :" + products[index].qty)
+        }
+        console.log(products)
+        state.calcTotal()
+        return { items: products }
+    }),
+    increment: (bookId) => set((state) => {
+        let products = state.items
+        let index = products.findIndex((el) => (el.bookId == bookId))
+        products[index].qty++
+        state.calcTotal()
+        return { items: products }
+    }),
+    decrement: (bookId) => set((state) => {
+        let products = state.items
+        let index = products.findIndex((el) => (el.bookId == bookId))
+        if (products[index].qty > 1) {
+            products[index].qty--
+        } else {
+            products.splice(index, 1)
+        }
+        state.calcTotal()
+        return { items: products }
+    }),
+    close: (bookId) => set((state) => {
+        let products = state.items
+        let index = products.findIndex((el) => (el.bookId == bookId))
+        products.splice(index, 1)
+        state.calcTotal()
+        return { items: products }
+
+    }),
+    calcTotal: () => set((state) => {
+        let Total = 0
+        let products = state.items
+        products.forEach((el) => {
+            Total += el.price * el.qty
+        });
+        console.log(Total)
+        return { total: Total }
+    })
+}))

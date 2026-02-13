@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Library from "../assets/533643aa8db82414f48d43a992d009dda3961386.png"
 import CartItems from '../components/CartItems'
 import { addCart } from '../store'
+import Checkout from '../components/Checkout'
 export default function Cart() {
   const nav = useNavigate()
   const { items } = addCart()
@@ -30,6 +31,9 @@ export default function Cart() {
             ))
           }
         </div>
+      </div>
+      <div className='w-full mb-20'>
+        <Checkout />
       </div>
     </div>
 

@@ -6,10 +6,11 @@ import { FaRegHeart } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import StarRating from './Stars'
 import { useNavigate } from 'react-router-dom'
-import { addCart } from '../store'
+import { addCart, addWishlist } from '../store'
 export default function CardBooks({ element }) {
 const nav=useNavigate()
   const {addCartFunction} = addCart()
+  const {addWishlistFunction} = addWishlist()
 
     return (
         <div className=' flex flex-row   max-w-[95%] w-full min-h-63.75 bg-[#F5F5F5] max-[700px]:flex-col max-[700px]:items-center  gap-9.75'>
@@ -53,7 +54,7 @@ const nav=useNavigate()
 
                         <div className='flex flex-row gap-4 w-61 max-[700px]:w-full items-end max-[700px]:justify-between justify-end h-12'>
                             <button onClick={()=>addCartFunction(element)} className=' bg-[#D9176C] max-[700px]:grow rounded-lg  px-[29.5px] py-3.25 h-full text-[#ffffff] text-[16px]  font-semibold flex justify-center items-center cursor-pointer hover:-translate-y-1 transition duration-200'>Add To Cart <AiOutlineShoppingCart className='font-bold ml-2 ' /></button>
-                            <button className='flex justify-center items-center rounded-lg p-3.5  h-full bg-[#ffffff] border border-[#D9176C] cursor-pointer  text-[#D9176C] hover:-translate-y-1 transition duration-200'><FaRegHeart className='text-lg' /></button>
+                            <button onClick={()=>addWishlistFunction(element)} className='flex justify-center items-center rounded-lg p-3.5  h-full bg-[#ffffff] border border-[#D9176C] cursor-pointer  text-[#D9176C] hover:-translate-y-1 transition duration-200'><FaRegHeart className='text-lg' /></button>
                         </div>
                     </div>
                 </div>

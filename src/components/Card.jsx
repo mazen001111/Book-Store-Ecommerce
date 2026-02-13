@@ -5,9 +5,10 @@ import dad from "../assets/dad.png"
 import { FaRegHeart } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import StarRating from './Stars'
-import { addCart } from '../store'
+import { addCart, addWishlist } from '../store'
 export default function Card({ element }) {
   const {addCartFunction} = addCart()
+  const {addWishlistFunction} = addWishlist()
 
     return (
         <div className='p-5 min-[570px]:p-10 flex flex-col  min-[570px]:flex-row justify-between max-[570px]:items-center max-w-[95%] w-162 bg-[#ffffff]  gap-9.75'>
@@ -38,7 +39,7 @@ export default function Card({ element }) {
                     </div>
                     <div className='flex flex-row gap-4 w-full'>
                         <button onClick={()=>addCartFunction(element)} className='py-3.5 max-[692px]:w-[70%]  min-[692px]:px-10 bg-[#D9176C] rounded-lg text-[#ffffff] text-[12px] min-[692px]:text-lg font-semibold flex justify-center items-center cursor-pointer border-2 hover:bg-[#ffffff] hover:border-[#D9176C] hover:text-[#D9176C] transition duration-200'>Add To Cart <AiOutlineShoppingCart  className='font-bold ml-2 ' /></button>
-                        <button className='flex justify-center grow items-center rounded-lg p-[14] bg-[#ffffff] border-2 border-[#D9176C] cursor-pointer hover:bg-[#D9176C]   text-[#D9176C] hover:text-[#ffffff] transition duration-200'><FaRegHeart className='text-2xl'  /></button>
+                        <button onClick={()=>addWishlistFunction(element)} className='flex justify-center grow items-center rounded-lg p-[14] bg-[#ffffff] border-2 border-[#D9176C] cursor-pointer hover:bg-[#D9176C]   text-[#D9176C] hover:text-[#ffffff] transition duration-200'><FaRegHeart className='text-2xl'  /></button>
                     </div>
                 </div>
             </div>

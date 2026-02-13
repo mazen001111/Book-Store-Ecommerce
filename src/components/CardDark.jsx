@@ -6,9 +6,10 @@ import { FaRegHeart } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import StarRating from './Stars'
 import cart from "../assets/cart.png"
-import { addCart } from '../store'
+import { addCart, addWishlist } from '../store'
 export default function CardDark({ element }) {
       const {addCartFunction} = addCart()
+      const {addWishlistFunction} = addWishlist()
     
     return (
         <div className='p-4  flex flex-col md:flex-row  max-w-[95%] w-90 px-5 md:w-106 items-center rounded-lg bg-[#3B2F4A]  gap-6'>
@@ -41,7 +42,10 @@ export default function CardDark({ element }) {
                         <div className="h-full bg-[#EAA451] rounded-lg" style={{ width: (20 / element.stock) * 100 + "%" }}></div>
                     </div>
                     <p className='text-[#FFFFFF80] -mt-3.5'>{element.stock - 20} books left</p>
-                    <div className='flex flex-row w-full justify-end'>
+                    <div className='flex flex-row w-full justify-end gap-2'>
+                        <div onClick={()=>addWishlistFunction(element)} className='px-4 py-3.5 w-fit rounded-lg bg-[#ffffff] border border-[#D9176C] hover:scale-[1.04] transition duration-200 cursor-pointer flex items-center justify-center'>
+                            <FaRegHeart className='text-[#D9176C] text-lg' />
+                        </div>
                         <div onClick={()=>addCartFunction(element)} className='px-4 py-3.5 w-fit rounded-lg bg-[#D9176C] hover:scale-[1.04] transition duration-200 cursor-pointer'>
                             <img src={cart} className='w-[19.51px] h-4 ' alt="" />
                         </div>

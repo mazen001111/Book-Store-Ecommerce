@@ -2,10 +2,13 @@ import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import Library from "../assets/533643aa8db82414f48d43a992d009dda3961386.png"
-import CartItems from '../components/CartItems'
+import WishListItems from '../components/WishListItems'
+import { addWishlist } from '../store'
 
 export default function WhishList() {
   const nav = useNavigate()
+  const { items } = addWishlist()
+
   useEffect(() => {
     let token = localStorage.getItem("Token") || sessionStorage.getItem("Token")
     if (!token) {
@@ -22,7 +25,11 @@ export default function WhishList() {
       <div className='flex flex-col gap-2 w-full container max-w-333'>
 
         <div className='flex flex-col gap-4 w-full'>
-
+          {
+            items.map((el) => (
+              <WishListItems key={el.bookId} el={el} />
+            ))
+          }
         </div>
       </div>
     </div>
